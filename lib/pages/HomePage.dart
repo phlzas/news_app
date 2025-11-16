@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/providers/HomeProvider.dart';
+import 'package:news_app/utils/Ariticaltem.dart';
 import 'package:news_app/utils/MyDrawer.dart';
 import 'package:provider/provider.dart';
 
@@ -22,38 +23,11 @@ class Homepage extends StatelessWidget {
             final data = pro.resualt!.json;
             return GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
+                crossAxisCount: 1,
               ),
               itemCount: pro.resualt?.json.length,
               itemBuilder: (BuildContext context, int index) {
-                return Card(
-                  child: Column(
-                    children: [
-                      Center(
-                        child: CircleAvatar(
-                          backgroundColor: Colors.white,
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: CircleAvatar(
-                              backgroundImage: NetworkImage(
-                                data[index].urlToImage,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Text(
-                        data[index].title,
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      Flexible(child: Text(data[index].description)),
-                      Flexible(child: Text(data[index].content)),
-                      Flexible(
-                        child: Text(data[index].publishedAt.substring(2, 7)),
-                      ),
-                    ],
-                  ),
-                );
+                return Ariticaltem(data: data[index]);
               },
             );
           }

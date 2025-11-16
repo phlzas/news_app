@@ -5,6 +5,7 @@ class Article {
   String urlToImage;
   String publishedAt;
   String content;
+  String url;
   Article({
     required this.author,
     required this.description,
@@ -12,6 +13,7 @@ class Article {
     required this.title,
     required this.urlToImage,
     required this.content,
+    required this.url,
   });
 }
 
@@ -21,6 +23,7 @@ class Articlesmodels {
   factory Articlesmodels.Tojson(Map<String, dynamic> resualts) {
     List<Article>  Filtered = (resualts['articles'] as List).map<Article>((vlaue){
       return  Article(
+        url: vlaue['url'] ?? '',
         author: vlaue['author'] ?? '',
         description: vlaue['description'] ?? '' ,
         publishedAt: vlaue['publishedAt']  ?? '',
