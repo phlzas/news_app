@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/pages/HomePage.dart';
+import 'package:news_app/providers/ArticalsProvider.dart';
 import 'package:news_app/providers/HomeProvider.dart';
 import 'package:provider/provider.dart';
 
@@ -9,14 +10,15 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
           create: (context) => Homeprovider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) =>  Articalsprovider() ,
         )
       ],
       child: MaterialApp(

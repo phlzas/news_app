@@ -9,16 +9,17 @@ class Homepage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final pro = context.read<Homeprovider>();
-    if (pro.resualt == null) {
-      pro.Getdata();
-      return Center(child: CircularProgressIndicator());
-    } else {
-      final data = pro.resualt!.json;
-      return Scaffold(
-        appBar: AppBar(title: Text("Home")),
-        drawer: Mydrawer(),
-        body: Consumer<Homeprovider>(
-          builder: (context, myType, child) {
+
+    return Scaffold(
+      appBar: AppBar(title: Text("Home")),
+      drawer: Mydrawer(),
+      body: Consumer<Homeprovider>(
+        builder: (context, myType, child) {
+          if (pro.resualt == null) {
+            pro.Getdata();
+            return Center(child: CircularProgressIndicator());
+          } else {
+            final data = pro.resualt!.json;
             return GridView.builder(
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
@@ -41,41 +42,23 @@ class Homepage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Scrollable(
-                        viewportBuilder: (context, position) {
-                          return Column(
-                            children: [
-                              Text(
-                                data[index].title,
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              Flexible(
-                                child: Column(
-                                  children: [
-                                    Flexible(
-                                      child: Text(data[index].description),
-                                    ),
-                                    Flexible(child: Text(data[index].content)),
-                                    Flexible(
-                                      child: Text(
-                                        data[index].publishedAt.substring(1, 6),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          );
-                        },
+                      Text(
+                        data[index].title,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      Flexible(child: Text(data[index].description)),
+                      Flexible(child: Text(data[index].content)),
+                      Flexible(
+                        child: Text(data[index].publishedAt.substring(2, 7)),
                       ),
                     ],
                   ),
                 );
               },
             );
-          },
-        ),
-      );
-    }
+          }
+        },
+      ),
+    );
   }
 }
