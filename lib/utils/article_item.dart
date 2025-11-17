@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/models/ArticlesModels.dart';
-import 'package:news_app/pages/WebViewPage.dart';
+import 'package:news_app/models/articles_models.dart';
+import 'package:news_app/pages/webview_page.dart';
 
-class Ariticaltem extends StatelessWidget {
-  Article data;
-  Ariticaltem({super.key, required this.data});
+class ArticleItem extends StatelessWidget {
+  final Article data;
+  const ArticleItem({super.key, required this.data});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class Ariticaltem extends StatelessWidget {
         showDialog(
           context: context,
           builder: (context) => AlertDialog(
-            content: Container(
+            content: SizedBox(
               height: 200,
               width: 200,
               child: SingleChildScrollView(
@@ -53,17 +53,27 @@ class Ariticaltem extends StatelessWidget {
         child: Column(
           children: [
             Center(
-              child: data.urlToImage == ""
+              child: data.urlToImage == ''
                   ? Container(
                       height: 200,
                       width: 200,
                       color: Colors.grey,
                       child: Icon(Icons.image),
                     )
-                  : Container(
+                  : SizedBox(
                       height: 200,
                       width: 200,
-                      child: Image.network(data.urlToImage, fit: BoxFit.cover),
+                      child: Image.network(
+                        data.urlToImage,
+                        fit: BoxFit.cover,
+                        errorBuilder: (context, error, stackTrace) =>
+                         Container(
+                          height: 200,
+                          width: 200,
+                          color: Colors.grey,
+                          child: Icon(Icons.image),
+                        ),
+                      ),
                     ),
             ),
             Text(data.title, style: TextStyle(fontWeight: FontWeight.bold)),

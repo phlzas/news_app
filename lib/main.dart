@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/pages/HomePage.dart';
-import 'package:news_app/providers/ArticalsProvider.dart';
-import 'package:news_app/providers/HomeProvider.dart';
+import 'package:news_app/pages/home_page.dart';
+import 'package:news_app/providers/articals_provider.dart';
+import 'package:news_app/providers/home_provider.dart';
 import 'package:provider/provider.dart';
 
 void main() {

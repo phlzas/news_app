@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/pages/ArticalsPage.dart';
-import 'package:news_app/providers/ArticalsProvider.dart';
+import 'package:news_app/pages/articals_page.dart';
+import 'package:news_app/providers/articals_provider.dart';
 import 'package:provider/provider.dart';
 
 class Mydrawer extends StatelessWidget {
@@ -25,7 +25,7 @@ class Mydrawer extends StatelessWidget {
             onTap: (){
               Navigator.pop(context);
               context.read<Articalsprovider>().resualt = null;
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Articalspage(Cetagory: "sports"),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Articalspage(cetagory: "sports"),));
             },
               ),
                ListTile(
@@ -34,7 +34,7 @@ class Mydrawer extends StatelessWidget {
                 onTap: (){
                Navigator.pop(context);
               context.read<Articalsprovider>().resualt = null;
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Articalspage(Cetagory: "business"),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Articalspage(cetagory: "business"),));
             },
               ),
                ListTile(
@@ -43,7 +43,7 @@ class Mydrawer extends StatelessWidget {
                 onTap: (){
                Navigator.pop(context);
               context.read<Articalsprovider>().resualt = null;
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Articalspage(Cetagory: "technology"),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Articalspage(cetagory: "technology"),));
             },
               ),
                ListTile(
@@ -52,7 +52,7 @@ class Mydrawer extends StatelessWidget {
                 onTap: (){
               Navigator.pop(context);
               context.read<Articalsprovider>().resualt = null;
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Articalspage(Cetagory: "science"),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Articalspage(cetagory: "science"),));
             },
               ),
               ListTile(
@@ -61,7 +61,7 @@ class Mydrawer extends StatelessWidget {
                 onTap: (){
                Navigator.pop(context);
               context.read<Articalsprovider>().resualt = null;
-              Navigator.push(context, MaterialPageRoute(builder: (context) => Articalspage(Cetagory: "entertainment"),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Articalspage(cetagory: "entertainment"),));
             },
               ),
             ],

@@ -13,7 +13,6 @@ class _WebviewpageState extends State<Webviewpage> {
   @override
   Widget build(BuildContext context) {
     final controller = WebViewController()
-      ..setJavaScriptMode(JavaScriptMode.disabled)
       ..loadRequest(Uri.parse(widget.url));
     return Scaffold(
       appBar: AppBar(title: const Text("Webview")),

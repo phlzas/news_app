@@ -20,8 +20,8 @@ class Article {
 class Articlesmodels {
   List<Article> json;
   Articlesmodels({required this.json});
-  factory Articlesmodels.Tojson(Map<String, dynamic> resualts) {
-    List<Article>  Filtered = (resualts['articles'] as List).map<Article>((vlaue){
+  factory Articlesmodels.fromJson(Map<String, dynamic> resualts) {
+    List<Article>  filtered = (resualts['articles'] as List).map<Article>((vlaue){
       return  Article(
         url: vlaue['url'] ?? '',
         author: vlaue['author'] ?? '',
@@ -36,7 +36,7 @@ class Articlesmodels {
     
     
     return Articlesmodels(
-      json: Filtered,
+      json: filtered,
     );
   }
 }
