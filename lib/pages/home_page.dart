@@ -21,14 +21,17 @@ class Homepage extends StatelessWidget {
             return Center(child: CircularProgressIndicator());
           } else {
             final data = pro.resualt!.json;
-            return GridView.builder(
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 1,
+            return RefreshIndicator(
+              onRefresh: () => pro.getData(),
+              child: GridView.builder(
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: 1,
+                ),
+                itemCount: pro.resualt?.json.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ArticleItem(data: data[index]);
+                },
               ),
-              itemCount: pro.resualt?.json.length,
-              itemBuilder: (BuildContext context, int index) {
-                return ArticleItem(data: data[index]);
-              },
             );
           }
         },
